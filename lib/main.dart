@@ -1,5 +1,7 @@
+import 'package:coffeeapp/models/coffee_shop.dart';
 import 'package:coffeeapp/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +12,13 @@ void main() {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+      create: (context) =>CoffeeShop(),
+      builder: (context, child) => MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-    );
+    )
+       );
+    
   }
 }
