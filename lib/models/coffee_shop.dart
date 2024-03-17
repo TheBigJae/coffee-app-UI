@@ -21,7 +21,7 @@ class CoffeeShop extends ChangeNotifier {
   // user cart
   List<Coffee> _userCart = [];
   //get coffee list
-  List<Coffee> get coffeeShop => [];
+  List<Coffee> get coffeeShop => _shop;
   //get user cart
   List<Coffee> get userCart => _userCart;
   //add item to cart
