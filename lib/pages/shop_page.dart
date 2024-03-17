@@ -1,4 +1,4 @@
-import 'dart:js_util';
+// import 'dart:js_util';
 
 import 'package:coffeeapp/components/coffee_tile.dart';
 import 'package:coffeeapp/models/coffee.dart';
@@ -16,7 +16,15 @@ class ShopPage extends StatefulWidget {
 class _ShopPageState extends State<ShopPage> {
   //add coffee to cart
   void addToCart(Coffee coffee) {
+    //add to cart
     Provider.of<CoffeeShop>(context, listen: false).addItemToCart(coffee);
+
+    //let user know it has been added to the cart
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text('Successfully Added to Cart '),
+            ));
   }
 
   @override

@@ -12,13 +12,20 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
+  //remove item from cart
 
-  //remove item from cart 
-
-  void removeFromCart(Coffee coffee){
+  void removeFromCart(Coffee coffee) {
     Provider.of<CoffeeShop>(context, listen: false).removeItemFromCart(coffee);
   }
 
+
+  void payNow (){
+    /*
+    
+      Payment options
+    
+     */
+  }
   @override
   Widget build(BuildContext context) {
     return Consumer<CoffeeShop>(
@@ -33,13 +40,36 @@ class _CartPageState extends State<CartPage> {
               ),
 
               //List of Cart Items
-              Expanded(child: ListView.builder(itemBuilder: (context, index) {
-                //get Individual cart items
-                Coffee eachCoffee = value.userCart[index];
+              Expanded(
+                  child: ListView.builder(
+                      itemCount: value.userCart.length,
+                      itemBuilder: (context, index) {
+                        //get Individual cart items
+                        Coffee eachCoffee = value.userCart[index];
 
-                // return coffee tile
-                return CoffeeTile(coffee: eachCoffee, onPressed: removeFromCart, icon: Icon(Icons.delete),)
-              }))
+                        // return coffee tile
+                        return CoffeeTile(
+                          coffee: eachCoffee,
+                          onPressed: () => removeFromCart(eachCoffee),
+                          icon: Icon(Icons.delete),
+                        );
+                      })),
+                      GestureDetector(
+                        onTap: payNow,
+                        child: Container(
+                          padding: EdgeInsets.all(25),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.brown,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Center(
+                            child: Text('Pay Now', style: TextStyle(
+                              color: Colors.white
+                            ),),
+                          ),
+                        ),
+                      )
             ],
           ),
         ),
