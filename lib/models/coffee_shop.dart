@@ -6,17 +6,17 @@ class CoffeeShop extends ChangeNotifier {
   final List<Coffee> _shop = [
     //black Coffee
     Coffee(
-        name: 'Long Black', price: '4.18', imagePath: 'lib/icons/coffee1.svg'),
+        name: 'Long Black', price: '4.18', imagePath: 'lib/images/coffee1.png'),
     //Espresso
     Coffee(
-        name: 'Esspresso', price: '4.18', imagePath: 'lib/icons/coffee2.svg'),
+        name: 'Esspresso', price: '4.18', imagePath: 'lib/images/coffee2.png'),
     //Iced Coffee
     Coffee(
         name: 'Iced Coffeee',
         price: '4.18',
-        imagePath: 'lib/icons/coffee3.svg'),
+        imagePath: 'lib/images/coffee3.png'),
     //Latte
-    Coffee(name: 'Latte', price: '4.18', imagePath: 'lib/icons/coffee4.svg')
+    Coffee(name: 'Latte', price: '4.18', imagePath: 'lib/images/coffee4.png')
   ];
   // user cart
   List<Coffee> _userCart = [];
